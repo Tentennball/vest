@@ -20,6 +20,22 @@ class _VestState extends State<Vest> {
   void initState() {
     super.initState();
     socketInit();
+    listenAuth();
+  }
+
+  void listenAuth() {
+    socket.on('ticket-check-success', (isSuccessful) {
+      print("Is success?? : $isSuccessful");
+      if (isSuccessful) {
+        setState(() {
+          isLoggedIn = true;
+        });
+      } else {
+        setState(() {
+          isLoggedIn = false;
+        });
+      }
+    });
   }
 
   @override

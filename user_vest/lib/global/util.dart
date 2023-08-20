@@ -27,13 +27,7 @@ Future<void> socketInit() async {
       adminSocketId = adminId;
       print("listener.dart, socketInit() : $adminSocketId");
     });
-    socket.on('ticket-check-success', (isSuccessful) {
-      if (isSuccessful) {
-        isLoggedIn = true;
-      } else {
-        isLoggedIn = false;
-      }
-    });
+
     socket.emit("user-init");
     completer.complete(); // Complete the Future when initialization is done
   });

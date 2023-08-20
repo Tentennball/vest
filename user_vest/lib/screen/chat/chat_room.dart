@@ -22,6 +22,7 @@ class _ChatRoomState extends State<ChatRoom> {
   @override
   void initState() {
     super.initState();
+
     listenChat();
     scrollToMax();
   }

@@ -24,7 +24,7 @@ const initUser = (socket) => {
 
     sharedData.userNum++;
 
-    return;
+    return socket.id;
   });
 };
 module.exports = { initUser };
