@@ -5,15 +5,16 @@ import 'package:admin_vest/global/state.dart';
 final Dio dio = Dio();
 
 /// on the ngrok
-// const server = "https://14c0-165-229-125-114.jp.ngrok.io";
+// const server = "https://3328-165-229-50-47.ngrok.io";
 
 /// on the test (localhost)
-const server = "http://localhost:8080/";
+const server = "http://localhost:8080";
 
 IO.Socket socketInit() {
   socket = IO.io(server, <String, dynamic>{
     'transports': ['websocket'],
   });
+
   socket.on('connect', (_) {
     adminSocketId = socket.id!;
 
@@ -25,4 +26,4 @@ IO.Socket socketInit() {
   return socket;
 }
 
-late IO.Socket socket;
+IO.Socket socket = socketInit();

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:user_vest/global/state.dart';
-import 'package:user_vest/global/util.dart';
 import 'package:user_vest/screen/chat/chat_room.dart';
 
 class Login extends StatefulWidget {
@@ -54,7 +53,6 @@ class _LoginState extends State<Login> {
                     // should be modified
                     setState(() {
                       isLoggedIn = true;
-                      socket = socketInit();
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

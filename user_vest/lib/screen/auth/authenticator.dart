@@ -12,6 +12,12 @@ class Authenticator extends StatefulWidget {
 
 class _AuthenticatorState extends State<Authenticator> {
   @override
+  void initState() {
+    super.initState();
+    socket = socketInit();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -20,7 +26,7 @@ class _AuthenticatorState extends State<Authenticator> {
       ),
       body: Center(
         child: QrImageView(
-          data: '$server/ticket-check/:userSocketId=$userSocketId',
+          data: '$server/ticket-check?userSocketId=$userSocketId',
           version: QrVersions.auto,
           size: 320,
           gapless: false,

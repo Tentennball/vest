@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:admin_vest/global/listener.dart';
 import 'package:admin_vest/global/state.dart';
-import 'package:admin_vest/global/util.dart';
 import 'package:admin_vest/screen/main/main.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +25,6 @@ class _VestState extends State<Vest> {
   @override
   void initState() {
     super.initState();
-    socket = socketInit();
     listenChat(context);
     listenRoomId(context);
     listenSosCall(context);
