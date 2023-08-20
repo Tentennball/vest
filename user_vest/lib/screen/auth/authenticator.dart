@@ -11,10 +11,13 @@ class Authenticator extends StatefulWidget {
 }
 
 class _AuthenticatorState extends State<Authenticator> {
+  Future<void>?
+      socketInitialization; // Use Future to handle async initialization
+
   @override
   void initState() {
     super.initState();
-    socket = socketInit();
+    socketInitialization = socketInit(); // Start socket initialization
   }
 
   @override
@@ -25,11 +28,22 @@ class _AuthenticatorState extends State<Authenticator> {
         centerTitle: true,
       ),
       body: Center(
-        child: QrImageView(
-          data: '$server/ticket-check?userSocketId=$userSocketId',
-          version: QrVersions.auto,
-          size: 320,
-          gapless: false,
+        child: FutureBuilder<void>(
+          future: socketInitialization,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator(); // Show a loading indicator while waiting
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              return QrImageView(
+                data: '$server/ticket-check?userSocketId=$userSocketId',
+                version: QrVersions.auto,
+                size: 320,
+                gapless: false,
+              );
+            }
+          },
         ),
       ),
     );

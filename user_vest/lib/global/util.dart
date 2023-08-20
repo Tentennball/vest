@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:user_vest/global/state.dart';
@@ -12,7 +14,8 @@ const server = "http://localhost:8080";
 
 // const server = "https://3328-165-229-50-47.ngrok.io";
 
-IO.Socket socketInit() {
+Future<void> socketInit() async {
+  final Completer<void> completer = Completer<void>();
   socket = IO.io(server, <String, dynamic>{
     'transports': ['websocket'],
   });
@@ -22,7 +25,6 @@ IO.Socket socketInit() {
 
     socket.on('get-admin-socket', (adminId) {
       adminSocketId = adminId;
-
       print("listener.dart, socketInit() : $adminSocketId");
     });
     socket.on('ticket-check-success', (isSuccessful) {
@@ -33,10 +35,11 @@ IO.Socket socketInit() {
       }
     });
     socket.emit("user-init");
+    completer.complete(); // Complete the Future when initialization is done
   });
 
-  return socket;
+  return completer.future;
 }
 
 /// user socket
-IO.Socket socket = socketInit();
+late IO.Socket socket;
