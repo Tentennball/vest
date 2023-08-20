@@ -94,7 +94,7 @@ class _ChatRoomState extends State<ChatRoom> {
             actions: <Widget>[
               TextButton(
                 onPressed: () {
-                  socket.emit("sos", userSocketId);
+                  socket.emit('sos', userSocketId);
                   Navigator.of(context).pop();
                 },
                 child: const Text(
@@ -142,7 +142,7 @@ class _ChatRoomState extends State<ChatRoom> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.photo_album),
+            icon: const Icon(Icons.sos),
             tooltip: 'SOS',
             onPressed: sendSosCall,
           ),

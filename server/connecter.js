@@ -11,6 +11,7 @@ const Socket = (io) => {
     initUser(socket);
     processChat(socket);
     disconnect(socket);
+    sos(socket);
   });
 };
 module.exports = { Socket };

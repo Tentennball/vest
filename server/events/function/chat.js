@@ -1,5 +1,3 @@
-const sharedData = require("../../runtime_data");
-
 const processChat = (socket) => {
   socket.on("request-chat", (data) => {
     console.log(JSON.stringify(data));

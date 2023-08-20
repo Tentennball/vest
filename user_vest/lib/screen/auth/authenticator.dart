@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:user_vest/global/state.dart';
 import 'package:user_vest/global/util.dart';
 
 class Authenticator extends StatefulWidget {
@@ -19,7 +20,7 @@ class _AuthenticatorState extends State<Authenticator> {
       ),
       body: Center(
         child: QrImageView(
-          data: '$server/ticket-check/',
+          data: '$server/ticket-check/:userSocketId=$userSocketId',
           version: QrVersions.auto,
           size: 320,
           gapless: false,

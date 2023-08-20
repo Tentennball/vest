@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user_vest/global/state.dart';
+import 'package:user_vest/global/util.dart';
 import 'package:user_vest/screen/auth/login_(deleted).dart';
 import 'package:user_vest/screen/chat/chat_room.dart';
 
@@ -12,8 +13,9 @@ class Vest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    socket = socketInit();
     return MaterialApp(
-        debugShowCheckedModeBanner: true,
+        debugShowCheckedModeBanner: false,
         home: isLoggedIn ? const ChatRoom() : const Login()
         //  const Authenticator(),
         );
