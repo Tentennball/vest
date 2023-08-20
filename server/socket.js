@@ -1,14 +1,14 @@
-let io;
+let ioInstance; // Use a different variable name
 
 module.exports = {
   init: (httpServer) => {
-    io = require("socket.io")(httpServer);
-    return io;
+    ioInstance = require("socket.io")(httpServer); // Initialize ioInstance
+    return ioInstance;
   },
   getIO: () => {
-    if (!io) {
-      throw (Error = new Error("Error!!"));
+    if (!ioInstance) {
+      throw new Error("Error!!");
     }
-    return io;
+    return ioInstance;
   },
 };
