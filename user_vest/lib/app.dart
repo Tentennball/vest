@@ -43,6 +43,7 @@ class _VestState extends State<Vest> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: isLoggedIn ? const ChatRoom() : const Authenticator(),
+      // home: ChatRoom(),
     );
   }
 }

@@ -8,7 +8,7 @@ final Dio dio = Dio();
 // const server = "https://3328-165-229-50-47.ngrok.io";
 
 /// on the test (localhost)
-const server = "http://localhost:8080";
+const server = "http://localhost:9000";
 
 IO.Socket socketInit() {
   socket = IO.io(server, <String, dynamic>{

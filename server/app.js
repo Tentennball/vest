@@ -10,6 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(authRoutes);
 
-const server = app.listen(8080);
+const server = app.listen(9000);
 const io = require("./socket").init(server);
 connecter.Socket(io);

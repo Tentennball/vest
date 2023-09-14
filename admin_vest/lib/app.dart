@@ -5,13 +5,19 @@ import 'package:admin_vest/screen/main/main.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => ChatManager())],
-    child: const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Vest(),
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ChatManager(),
+        ),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Vest(),
+      ),
     ),
-  ));
+  );
 }
 
 class Vest extends StatefulWidget {

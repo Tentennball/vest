@@ -1,3 +1,4 @@
+import 'package:admin_vest/screen/camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:admin_vest/global/state.dart';
@@ -19,7 +20,7 @@ class _MainState extends State<Main> {
   List<Widget> screens = <Widget>[
     const ChatRoomList(),
     const Map(),
-    // const CameraScreen(),
+    const Scanner(),
   ];
 
   void onTapped(int idx) {
@@ -50,10 +51,10 @@ class _MainState extends State<Main> {
             icon: Icon(Icons.map),
             label: 'Map',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.camera),
-          //   label: 'Camera',
-          // ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera),
+            label: 'Camera',
+          ),
         ],
         onTap: onTapped,
         type: BottomNavigationBarType.shifting,

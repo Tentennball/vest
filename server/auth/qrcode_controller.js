@@ -10,7 +10,7 @@ exports.ticketCheck = (req, res, next) => {
   const io = socket.getIO();
 
   io.to(userSocketId).emit("ticket-check-success", true);
-  socket.to(adminSocketId).emit("admin-get-roomid", socket.id);
+  io.to(adminSocketId).emit("admin-get-roomid", userSocketId);
 
   res.status(200).send("Event sent successfully.");
 };
