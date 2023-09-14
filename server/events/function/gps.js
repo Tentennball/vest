@@ -1,7 +1,3 @@
-const gps = () => {
-  socket.on("gps", (data) => {
-    console.log(clnt);
-  });
+exports.gps = (socket) => {
+  socket.on("gps", (data) => {});
 };
-
-module.exports = { gps };

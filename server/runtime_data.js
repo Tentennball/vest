@@ -22,12 +22,7 @@ let userToAdmin = new Map();
  * List of userSocket ID
  */
 let userSockets = new Set();
-/**
- * List of waiting user's ID
- *
- * If there's no admin in server when user entered, make user go to waiting queue
- */
-let waitingQueue = [];
+
 /**
  * Number of all user in server
  */
@@ -43,5 +38,4 @@ module.exports = {
   userToAdmin,
   userSockets,
   userNum,
-  waitingQueue,
 };
