@@ -3,6 +3,8 @@ import 'package:user_vest/global/state.dart';
 import 'package:user_vest/global/util.dart';
 import 'package:user_vest/screen/auth/authenticator.dart';
 import 'package:user_vest/screen/chat/chat_room.dart';
+import 'package:user_vest/location/location_permission.dart';
+import 'package:user_vest/location/location_sender.dart';
 
 void main() {
   runApp(const Vest());
@@ -21,6 +23,7 @@ class _VestState extends State<Vest> {
     super.initState();
     socketInit();
     listenAuth();
+    determinePosition();
   }
 
   void listenAuth() {
@@ -29,6 +32,7 @@ class _VestState extends State<Vest> {
       if (isSuccessful) {
         setState(() {
           isLoggedIn = true;
+          sendLocation();
         });
       } else {
         setState(() {
@@ -43,7 +47,6 @@ class _VestState extends State<Vest> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: isLoggedIn ? const ChatRoom() : const Authenticator(),
-      // home: ChatRoom(),
     );
   }
 }

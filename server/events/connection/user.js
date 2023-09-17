@@ -13,7 +13,7 @@ const initUser = (socket) => {
     console.log(adminSocketId, socket.id);
     sharedData.userToAdmin.set(socket.id, adminSocketId);
     console.log(adminSocketId);
-    sharedData.adminToUser.get(adminSocketId).add(socket.id);
+    if (adminSocketId) sharedData.adminToUser.get(adminSocketId).add(socket.id);
 
     // 수정
     socket.emit("get-admin-socket", adminSocketId);

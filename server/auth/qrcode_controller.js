@@ -4,7 +4,7 @@ const socket = require("../socket"); // Import your Socket.IO module
 exports.ticketCheck = (req, res, next) => {
   const userSocketId = req.query.userSocketId;
   const adminSocketId = userToAdmin.get(userSocketId);
-  console.log(userSocketId);
+  console.log(`ticketCheck : ${userSocketId} ${adminSocketId}`);
 
   // Use the io variable from your socket.js module
   const io = socket.getIO();

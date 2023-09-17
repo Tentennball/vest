@@ -53,7 +53,8 @@ const disconnect = (socket) => {
        */
       if (sharedData.userToAdmin.has(disconnectId)) {
         const adminSocketId = sharedData.userToAdmin.get(disconnectId);
-        sharedData.adminToUser.get(adminSocketId).delete(disconnectId);
+        if (adminSocketId)
+          sharedData.adminToUser.get(adminSocketId).delete(disconnectId);
       }
 
       sharedData.userNum--;

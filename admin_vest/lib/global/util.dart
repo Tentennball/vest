@@ -5,7 +5,9 @@ import 'package:admin_vest/global/state.dart';
 final Dio dio = Dio();
 
 /// on the ngrok
-// const server = "https://3328-165-229-50-47.ngrok.io";
+// const server = "https://whole-physically-sloth.ngrok-free.app";
+// const server = "https://free-frogs-search.loca.lt";
+// const server = "https://rooster-master-mayfly.ngrok-free.app";
 
 /// on the test (localhost)
 const server = "http://localhost:9000";

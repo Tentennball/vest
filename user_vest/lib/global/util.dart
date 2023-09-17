@@ -7,18 +7,20 @@ import 'package:user_vest/global/state.dart';
 final Dio dio = Dio();
 
 /// on the ngrok
-// const server = "https://98dc-165-229-125-30.ngrok.io";
+// const server = "https://whole-physically-sloth.ngrok-free.app";
+
+// on the local tunnel
+// const server = "https://free-frogs-search.loca.lt";
 
 /// on the test (localhost)
 const server = "http://localhost:9000";
-
-// const server = "https://3328-165-229-50-47.ngrok.io";
 
 Future<void> socketInit() async {
   final Completer<void> completer = Completer<void>();
   socket = IO.io(server, <String, dynamic>{
     'transports': ['websocket'],
   });
+
   socket.on('connect', (_) {
     userSocketId = socket.id!;
     print('Socket connected with ID: $userSocketId');
@@ -29,7 +31,7 @@ Future<void> socketInit() async {
     });
 
     socket.emit("user-init");
-    completer.complete(); // Complete the Future when initialization is done
+    completer.complete();
   });
 
   return completer.future;

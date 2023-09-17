@@ -43,7 +43,6 @@ class _AuthenticatorState extends State<Authenticator> {
                 size: 320,
                 gapless: false,
               );
-              // return const ChatRoom();
             }
           },
         ),
